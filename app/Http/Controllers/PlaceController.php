@@ -13,7 +13,8 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Place::all());
+        return Place::all();
     }
 
     /**
