@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePlaceRequest;
 use App\Http\Requests\UpdatePlaceRequest;
+use App\Http\Resources\PlaceResource;
 use App\Models\Place;
+use Inertia\Inertia;
 
 class PlaceController extends Controller
 {
@@ -13,8 +15,11 @@ class PlaceController extends Controller
      */
     public function index()
     {
-        // dd(Place::all());
-        return Place::all();
+        $paginated = Place::latest()->paginate();
+
+        return Inertia::render('Place/Index', [
+            'places' => PlaceResource::collection($paginated)
+        ]);
     }
 
     /**
@@ -46,7 +51,7 @@ class PlaceController extends Controller
      */
     public function edit(Place $place)
     {
-        //
+        return;
     }
 
     /**
@@ -62,6 +67,6 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
-        //
+        return;
     }
 }

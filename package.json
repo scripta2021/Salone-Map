@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "tsc && vite build && vite build --ssr",
-        "dev": "vite"
+        "dev": "vite",
+        "format": "npx @biomejs/biome format --write ."
     },
     "devDependencies": {
         "@biomejs/biome": "1.9.4",
